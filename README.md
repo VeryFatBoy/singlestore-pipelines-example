@@ -1,0 +1,1 @@
+# singlestore-pipelines-example
