@@ -51,11 +51,11 @@ SELECT * FROM temperatures LIMIT 5;
 CREATE PIPELINE IF NOT EXISTS kafka_confluent_cloud AS
 LOAD DATA KAFKA '{{ BROKER_ENDPOINT }}/temp'
 CONFIG '{
-   "security.protocol" : "SASL_SSL",
-   "sasl.mechanism" : "PLAIN",
-   "sasl.username" : "{{ CLUSTER_API_KEY }}"}'
+    "security.protocol" : "SASL_SSL",
+    "sasl.mechanism" : "PLAIN",
+    "sasl.username" : "{{ CLUSTER_API_KEY }}"}'
 CREDENTIALS '{
-   "sasl.password" : "{{ CLUSTER_API_SECRET }}"}'
+    "sasl.password" : "{{ CLUSTER_API_SECRET }}"}'
 SKIP DUPLICATE KEY ERRORS
 INTO TABLE temperatures
 FORMAT CSV
